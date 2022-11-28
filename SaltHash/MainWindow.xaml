@@ -1,0 +1,33 @@
+﻿<Window x:Class="SaltHash.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:SaltHash"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="600" MinWidth="600" MinHeight="700">
+    <Grid>
+        <StackPanel x:Name="spHash" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Width="550" Visibility="Visible">
+            <StackPanel Margin="0,0,0,25">
+                <TextBlock Text="Ввод" FontSize="24" Margin="5"/>
+                <TextBox x:Name="tbPasswordHash" Margin="5" materialDesign:HintAssist.Hint="Пароль" FontSize="20"/>
+                <Button x:Name="bGenerateHash" Content="Сгенерировать пароль" Margin="5" Click="bGenerateHash_Click" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,25">
+                <TextBlock Text="Вывод" FontSize="24" Margin="5"/>
+                <TextBox x:Name="tbOnlyHash" materialDesign:HintAssist.Hint="Пароль без соли" FontSize="20" Margin="5"/>
+                <TextBox x:Name="tbHashSalt" materialDesign:HintAssist.Hint="Пароль с солью" FontSize="20" Margin="5"/>
+                <TextBox x:Name="tbSalt" materialDesign:HintAssist.Hint="Соль" FontSize="20" Margin="5"/>
+            </StackPanel>
+            <StackPanel Margin="0,0,0,25">
+                <TextBlock Text="Расшифровка" FontSize="24" Margin="5,25,5,5"/>
+                <TextBox x:Name="tbHashDecrypt" materialDesign:HintAssist.Hint="Расшифрованный хэш" FontSize="20" Margin="5"/>
+                <Button x:Name="bDecryptHash" Content="Расшифровать пароль" Margin="5" Click="bDecryptHash_Click" Width="200"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
