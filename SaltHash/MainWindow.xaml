@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SaltHash"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="600" MinWidth="600" MinHeight="700">
+        Title="Hash-генератор" Height="700" Width="600" MinWidth="600" MinHeight="700">
     <Grid>
         <StackPanel x:Name="spHash" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Width="550" Visibility="Visible">
             <StackPanel Margin="0,0,0,25">

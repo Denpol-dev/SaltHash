@@ -81,7 +81,14 @@ namespace SaltHash
 
         private void bDecryptHash_Click(object sender, RoutedEventArgs e)
         {
-            tbHashDecrypt.Text = HashPass(tbPasswordHash.Text, Convert.FromBase64String(tbSalt.Text));
+            try
+            {
+                tbHashDecrypt.Text = HashPass(tbPasswordHash.Text, Convert.FromBase64String(tbSalt.Text));
+            }
+            catch
+            {
+                MessageBox.Show("Данная соль невозможна", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
