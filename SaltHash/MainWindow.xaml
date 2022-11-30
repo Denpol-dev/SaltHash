@@ -9,11 +9,12 @@
         xmlns:local="clr-namespace:SaltHash"
         mc:Ignorable="d"
         Title="Hash-генератор" Height="700" Width="600" MinWidth="600" MinHeight="700">
-    <Grid>
+    <Grid>        
         <StackPanel x:Name="spHash" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Width="550" Visibility="Visible">
             <StackPanel Margin="0,0,0,25">
                 <TextBlock Text="Ввод" FontSize="24" Margin="5"/>
                 <TextBox x:Name="tbPasswordHash" Margin="5" materialDesign:HintAssist.Hint="Пароль" FontSize="20"/>
+                <Label x:Name="lError" Content="" FontSize="20" FontStyle="Italic" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red"/>
                 <Button x:Name="bGenerateHash" Content="Сгенерировать пароль" Margin="5" Click="bGenerateHash_Click" Width="200"/>
             </StackPanel>
 

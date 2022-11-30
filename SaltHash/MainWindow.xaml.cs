@@ -2,6 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
+using System.Windows.Media;
 
 namespace SaltHash
 {
@@ -10,7 +11,6 @@ namespace SaltHash
     /// </summary>
     public partial class MainWindow : Window
     {
-        byte[] saltGlobal;
         public MainWindow()
         {
             InitializeComponent();
@@ -44,7 +44,6 @@ namespace SaltHash
             string hashSaltValue = Convert.ToBase64String(hashSaltBytes);
             string saltValue = Convert.ToBase64String(salt);
             string hashValue = Convert.ToBase64String(hashBytes);
-            saltGlobal = salt;
 
             return Tuple.Create(hashSaltValue, saltValue, hashValue);
         }
@@ -55,8 +54,6 @@ namespace SaltHash
 
             byte[] saltBytes = salt;
             byte[] textBytes = Encoding.UTF8.GetBytes(text);
-            //string textSalt = text + salt;
-            //byte[] textBytesSalt = Encoding.UTF8.GetBytes(textSalt);
             byte[] textBytesSalt = new byte[textBytes.Length + saltBytes.Length];
 
             for (int i = 0; i < textBytes.Length; i++)
@@ -84,6 +81,10 @@ namespace SaltHash
             try
             {
                 tbHashDecrypt.Text = HashPass(tbPasswordHash.Text, Convert.FromBase64String(tbSalt.Text));
+                if (tbHashDecrypt.Text == tbHashSalt.Text)
+                    lError.Content = "Пароль верен";
+                else
+                    lError.Content = "Пароль не верен";
             }
             catch
             {
